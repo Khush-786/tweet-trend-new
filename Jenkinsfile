@@ -6,9 +6,19 @@ pipeline {
     }
 
     stages {
-        stage('Clone-code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Khush-786/tweet-trend-new.git'
+        stage("Build"){
+            step{
+                  sh 'mvn clean Deploy'
+            }
+        }
+        stage {
+            environment {
+                scannerHome = tool 'valaxy-sonar-scanner'
+            }
+            steps{
+                withSonarQubeEnv('valaxy-sonarqube-server'){
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
     }

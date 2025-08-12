@@ -8,10 +8,10 @@ pipeline {
     stages {
         stage("Build"){
             steps{
-                  sh 'mvn clean Deploy'
+                  sh 'mvn clean deploy'
             }
         }
-        stage {
+        stage ('sonarQube Analysis'){
             environment {
                 scannerHome = tool 'valaxy-sonar-scanner'
             }

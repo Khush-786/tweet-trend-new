@@ -22,7 +22,7 @@ stage('SonarQube Analysis') {
     }
     steps {
         withSonarQubeEnv('valaxy-sonarqube-server') {
-            withCredentials([string(credentialsId: 'sonar-token-id', variable: 'SONAR_TOKEN')]) {
+            withCredentials([string(credentialsId: 'sonar-cred', variable: 'SONAR_TOKEN')]) {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
                       -Dsonar.organization=valaxy126-key \

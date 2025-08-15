@@ -17,7 +17,6 @@ pipeline {
         }
 
 stage('SonarQube Analysis') {
-    tools { nodejs 'NodeJS_LTS' }
     environment {
         scannerHome = tool 'valaxy-sonar-scanner'
     }

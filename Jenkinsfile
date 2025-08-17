@@ -34,8 +34,8 @@ stage('SonarQube Analysis') {
             withCredentials([string(credentialsId: 'sonar-cred', variable: 'SONAR_TOKEN')]) {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
-                     // -Dsonar.organization=valaxy126-key \
-                      -Dsonar.projectKey=valaxy126-key_twittertrend \
+                    
+                      -Dsonar.projectKey=valaxy126:twittertrend \
                       -Dsonar.sources=. \
                       -Dsonar.java.binaries=target/classes \
                       -Dsonar.token=${SONAR_TOKEN}

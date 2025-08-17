@@ -35,10 +35,10 @@ stage('SonarQube Analysis') {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
 
-                      -Dsonar.projectKey=valaxy126-key_twittertrend \
-                      -Dsonar.sources=. \
-                      -Dsonar.java.binaries=target/classes \
-                      -Dsonar.token=${SONAR_TOKEN}
+                      #-Dsonar.projectKey=valaxy126-key_twittertrend \
+                      #-Dsonar.sources=. \
+                      #-Dsonar.java.binaries=target/classes \
+                      #-Dsonar.token=${SONAR_TOKEN}
                 """
             }
         }

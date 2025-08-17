@@ -32,14 +32,14 @@ stage('SonarQube Analysis') {
     steps {
         withSonarQubeEnv('valaxy-sonarqube-server') {
             withCredentials([string(credentialsId: 'sonar-cred', variable: 'SONAR_TOKEN')]) {
-                sh """
+                sh ""
                     ${scannerHome}/bin/sonar-scanner \
 
                       #-Dsonar.projectKey=valaxy126-key_twittertrend \
                       #-Dsonar.sources=. \
                       #-Dsonar.java.binaries=target/classes \
-                      -Dsonar.token=${SONAR_TOKEN}
-                """
+                     # -Dsonar.token=${SONAR_TOKEN}
+                ""
             }
         }
     }

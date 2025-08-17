@@ -38,7 +38,7 @@ stage('SonarQube Analysis') {
                       #-Dsonar.projectKey=valaxy126-key_twittertrend \
                       #-Dsonar.sources=. \
                       #-Dsonar.java.binaries=target/classes \
-                      #-Dsonar.token=${SONAR_TOKEN}
+                      -Dsonar.token=${SONAR_TOKEN}
                 """
             }
         }

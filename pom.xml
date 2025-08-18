@@ -117,8 +117,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>dev</id>
-			<url>file://jarstaging</url>
+			<id>artifactory-release</id>
+			<url>https://rishideshmukh9175.jfrog.io/artifactory/libs-release-local</url>
 		</repository>
 	</distributionManagement>
 

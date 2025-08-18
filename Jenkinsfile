@@ -24,7 +24,7 @@ pipeline {
                 sh 'mvn surefire-report:report'
                 echo "------------unit test compleated-----------"
             }
-        
+        }
 
 stage('SonarQube Analysis') {
     environment {
@@ -44,7 +44,6 @@ stage('SonarQube Analysis') {
         }
     }
 }
-    }   
      stage("Jar Publish") {
         steps {
             script {

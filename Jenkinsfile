@@ -54,8 +54,8 @@ stage('SonarQube Analysis') {
                           "files": [
                             {
                               "pattern": "target/*.jar",
-                              "target": "libs-release-local/",
-                              "flat": "false",
+                              "target": "libs-release-local/com/valaxy/demo-workshop/${env.BUILD_NUMBER}/",
+                              "flat": "true",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
                             }

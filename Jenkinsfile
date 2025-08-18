@@ -1,4 +1,4 @@
-def registry = 'https://rishideshmukh9175.jfrog.io'
+deregistry = 'https://rishideshmukh9175.jfrog.io'
 pipeline {
     agent {
         node {
@@ -48,13 +48,13 @@ stage('SonarQube Analysis') {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:"https://rishideshmukh9175.jfrog.io/artifactory" ,  credentialsId:"artfiact-cred"
+                     def server = Artifactory.newServer url:"https://rishideshmukh9175.jfrog.io/artifactory" ,  credentialsId:"artifact-cred"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "jarstaging/(*)",
-                              "target": "libs-release-local/{1}",
+                              "pattern": "target/*.jar",
+                              "target": "libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]

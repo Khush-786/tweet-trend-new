@@ -85,7 +85,7 @@ stage('SonarQube Analysis') {
         steps {
             script {
                 echo '-------docker publish started--------------------------'
-                docker.withRegistry(registry , 'artifactory_token')
+                docker.withRegistry(registry , 'artifact-cred'){
                 app.push()
             }
             echo '-------docker publish end--------------------------'
@@ -93,4 +93,4 @@ stage('SonarQube Analysis') {
     } 
 }
     }
-    
+}

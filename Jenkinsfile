@@ -1,4 +1,6 @@
-deregistry = 'https://rishideshmukh9175.jfrog.io'
+def registry = 'https://rishideshmukh9175.jfrog.io'
+def imageName = 'rishideshmukh9175.jfrog.io/valaxy-docker-local/ttrend'
+def version = '2.1.2'
 pipeline {
     agent {
         node {
@@ -44,7 +46,7 @@ stage('SonarQube Analysis') {
         }
     }
 }
-<<<<<<< HEAD
+
      stage("Jar Publish") {
         steps {
             script {
@@ -69,15 +71,26 @@ stage('SonarQube Analysis') {
             
             }
         }   
-    }   
+    } 
+    stage("docker build"){
+        steps {
+            script {
+                echo '------Docker Build star---------------------------'
+                app= docker.build(imageName+":"+version)
+                echo '-------Docker Build End-----------------------------'
+            }
+        }
+    } 
+    stage ("docker publish") {
+        steps {
+            script {
+                echo '-------docker publish started--------------------------'
+                docker.withRegistry(registry , 'artifactory_token')
+                app.push()
+            }
+            echo '-------docker publish end--------------------------'
+        }
+    } 
 }
     }
-
-
-
-=======
     
-  }
-}
-        
->>>>>>> f9a7829 (added jenkinsfile)

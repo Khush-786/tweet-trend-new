@@ -44,7 +44,7 @@ stage('SonarQube Analysis') {
         }
     }
 }
-<<<<<<< HEAD
+        
      stage("Jar Publish") {
         steps {
             script {
@@ -72,12 +72,4 @@ stage('SonarQube Analysis') {
     }   
 }
     }
-
-
-
-=======
     
-  }
-}
-        
->>>>>>> f9a7829 (added jenkinsfile)
